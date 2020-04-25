@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TrackerTrackerViewController.swift
 //  Covid-Tracker
 //
 //  Created by Naidas on 4/25/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TrackerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
