@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tracker View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Covid_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TrackerViewController" customModule="Covid_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,6 +29,9 @@
                                                 </constraints>
                                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <state key="normal" backgroundImage="location.north.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="getLocationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="22b-Xm-yV7"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bIJ-z6-2Wx" userLabel="Search Bar">
                                                 <rect key="frame" x="55" y="0.0" width="225" height="40"/>
@@ -43,17 +46,20 @@
                                                 </constraints>
                                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <state key="normal" backgroundImage="magnifyingglass.circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="searchedPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pwg-8p-84R"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vul-h9-mXc" userLabel="Country">
-                                        <rect key="frame" x="253.33333333333326" y="60" width="81.666666666666657" height="30"/>
+                                        <rect key="frame" x="253.33333333333329" y="60" width="81.666666666666657" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="VRk-eA-z1h">
-                                        <rect key="frame" x="217.33333333333337" y="110" width="117.66666666666666" height="71"/>
+                                        <rect key="frame" x="217.33333333333334" y="110" width="117.66666666666666" height="71"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0S-dz-iAq" userLabel="Confirmed Number">
                                                 <rect key="frame" x="0.0" y="0.0" width="117.66666666666667" height="54"/>
@@ -70,7 +76,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fgA-fb-cce">
-                                        <rect key="frame" x="217.33333333333337" y="201" width="117.66666666666666" height="79"/>
+                                        <rect key="frame" x="217.33333333333334" y="201" width="117.66666666666666" height="79"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9i-CL-KLx" userLabel="TotDeaths Number">
                                                 <rect key="frame" x="0.0" y="0.0" width="117.66666666666667" height="54"/>
@@ -184,6 +190,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="countryLabel" destination="Vul-h9-mXc" id="JkB-ax-Rxc"/>
+                        <outlet property="currentCasesLabel" destination="D0S-dz-iAq" id="hbs-dF-TYJ"/>
+                        <outlet property="currentDeathsLabel" destination="w9i-CL-KLx" id="q6R-4r-WMn"/>
+                        <outlet property="newCasesLabel" destination="oTk-h1-9Jj" id="vQe-NG-71B"/>
+                        <outlet property="newDeathsLabel" destination="OqG-RP-OBH" id="iWD-8w-tSl"/>
+                        <outlet property="newRecoveriesLabel" destination="axT-YC-jdt" id="Tf2-dP-ngE"/>
+                        <outlet property="searchTextField" destination="bIJ-z6-2Wx" id="xv9-9v-xq2"/>
+                        <outlet property="totalTestsLabel" destination="c4H-ec-Pa5" id="c0W-ra-G2o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
