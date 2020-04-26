@@ -43,26 +43,6 @@ struct CovidDataManager {
             if let covidStats = self.parseJSON(covidData) {
                 self.delegate?.didUpdateCovidData(self, covidStats: covidStats)
             }
-            
-            //            do {
-            //                let decodedData = try JSONDecoder().decode(CovidData.self, from: data)
-            //
-            //                let country = decodedData.country
-            //                let cases = decodedData.cases
-            //                let todayCases = decodedData.todayCases
-            //                let deaths = decodedData.deaths
-            //                let todayDeaths = decodedData.todayDeaths
-            //                let recovered = decodedData.recovered
-            //                let tests = decodedData.tests
-            //
-            //                let covidData = CovidDataModel(countryName: country, totalCases: cases, totalDeaths: deaths, casesToday: todayCases, deathsToday: todayDeaths, totalRecovered: recovered, totalTests: tests)
-            //
-            //
-            //
-            //            } catch {
-            //                print("Error decoding countries \(error)")
-            //            }
-            
         }
     }
     
