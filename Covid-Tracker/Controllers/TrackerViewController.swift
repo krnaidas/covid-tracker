@@ -19,6 +19,7 @@ class TrackerViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     
     @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var updatedLabel: UILabel!
     
     @IBOutlet weak var currentCasesLabel: UILabel!
     @IBOutlet weak var currentDeathsLabel: UILabel!
@@ -86,6 +87,7 @@ extension TrackerViewController: CovidDataManagerDelegate {
         
         DispatchQueue.main.async {
             
+            self.updatedLabel.text = "Last Updated on: \(covidStats.dateTimeUpdatedString)"
             self.countryLabel.text = covidStats.countryName
             
             self.currentCasesLabel.text = covidStats.totalCasesString

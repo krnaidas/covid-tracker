@@ -11,6 +11,7 @@ import Foundation
 
 struct CovidDataModel: Codable {
     
+    let dateTimeUpdated: Int
     let countryName: String
     
     let totalCases: Int
@@ -21,6 +22,14 @@ struct CovidDataModel: Codable {
     let totalRecovered: Int
     let totalTests: Int
     
+    var dateTimeUpdatedString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let DTString = formatter.string(from: Date())
+        
+        return DTString
+    }
     
     var totalCasesString: String {
         return String(totalCases)
