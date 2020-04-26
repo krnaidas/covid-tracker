@@ -12,7 +12,7 @@ import CountryPickerView
 class TrackerViewController: UIViewController {
     
     let cpvInternal = CountryPickerView()
-    let covidDataManager = CovidDataManager()
+    var covidDataManager = CovidDataManager()
     weak var cpvTextField: CountryPickerView!
     var countryName = ""
     
@@ -33,6 +33,7 @@ class TrackerViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        covidDataManager.delegate = self
         cpvInternal.delegate = self
     }
     
@@ -54,6 +55,8 @@ class TrackerViewController: UIViewController {
         searchTextField.endEditing(true)
     }
 }
+
+//MARK: - Country Picker Delegates
 
 extension TrackerViewController: CountryPickerViewDelegate {
     func countryPickerView(_ countryPickerView: CountryPickerView, didSelectCountry country: Country) {
@@ -78,4 +81,31 @@ extension TrackerViewController: CountryPickerViewDelegate {
             
         }
     }
+}
+
+//MARK: -  Covid Data Manager
+
+extension TrackerViewController: CovidDataManagerDelegate {
+    func didUpdateCovidData(_ covidDataManager: CovidDataManager, covidStats: CovidDataModel) {
+        
+        DispatchQueue.main.async {
+            
+            self.countryLabel.text = covidStats.countryName
+            
+            self.currentCasesLabel.text = covidStats.totalCasesString
+            self.currentDeathsLabel.text = covidStats.totalDeathsString
+            
+            self.newCasesLabel.text = covidStats.casesTodayString
+            self.newRecoveriesLabel.text = covidStats.totalRecoveredString
+            self.newDeathsLabel.text = covidStats.deathsTodayString
+            self.totalTestsLabel.text = covidStats.totalTestsString
+            
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+    
+    
 }
