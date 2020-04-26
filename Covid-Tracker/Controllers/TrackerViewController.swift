@@ -13,10 +13,13 @@ class TrackerViewController: UIViewController {
     
     let cpvInternal = CountryPickerView()
     var covidDataManager = CovidDataManager()
+    
+    
     weak var cpvTextField: CountryPickerView!
     var countryName = ""
     
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var globeButton: UIButton!
     
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var updatedLabel: UILabel!
@@ -37,16 +40,20 @@ class TrackerViewController: UIViewController {
         covidDataManager.delegate = self
         cpvInternal.delegate = self
         
+        
+        covidDataManager.fetchWorldData()
+        
     }
     
     @IBAction func searchedPressed(_ sender: Any) {
         print(searchTextField.text!)
     }
     
-    @IBAction func getLocationPressed(_ sender: Any) {
-        print("location pressed")
-        
+    @IBAction func globeButtonPressed(_ sender: UIButton) {
+        covidDataManager.fetchWorldData()
+        searchTextField.text = ""
     }
+    
     
     @IBAction func searchFieldPressed(_ sender: UITextField) {
         if let nav = navigationController {
@@ -84,12 +91,13 @@ extension TrackerViewController: CountryPickerViewDelegate {
 //MARK: -  Covid Data Manager
 
 extension TrackerViewController: CovidDataManagerDelegate {
+    
     func didUpdateCovidData(_ covidDataManager: CovidDataManager, covidStats: CovidDataModel) {
         
         DispatchQueue.main.async {
             
-            self.updatedLabel.text = "Last Updated on: \(covidStats.dateTimeUpdatedString)"
             self.countryLabel.text = covidStats.countryName
+            self.updatedLabel.text = "Last Updated on: \(covidStats.dateTimeUpdatedString)"
             
             self.currentCasesLabel.text = covidStats.totalCasesString
             self.currentDeathsLabel.text = covidStats.totalDeathsString
@@ -100,6 +108,25 @@ extension TrackerViewController: CovidDataManagerDelegate {
             self.totalTestsLabel.text = covidStats.totalTestsString
             
         }
+    }
+    
+    func didUpdateWorldCovidData(_ covidDataManager: CovidDataManager, worldCovidStats: WorldCovidDataModel) {
+        
+        DispatchQueue.main.async {
+            
+            self.countryLabel.text = "World Statistics"
+            self.updatedLabel.text = "Last Updated on: \(worldCovidStats.dateTimeUpdatedString)"
+            
+            self.currentCasesLabel.text = worldCovidStats.totalCasesString
+            self.currentDeathsLabel.text = worldCovidStats.totalDeathsString
+            
+            self.newCasesLabel.text = worldCovidStats.casesTodayString
+            self.newRecoveriesLabel.text = worldCovidStats.totalRecoveredString
+            self.newDeathsLabel.text = worldCovidStats.deathsTodayString
+            self.totalTestsLabel.text = worldCovidStats.totalTestsString
+            
+        }
+        
     }
     
     func didFailWithError(error: Error) {

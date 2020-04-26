@@ -21,3 +21,14 @@ struct CovidData: Codable {
     let tests: Int
 
 }
+
+struct WorldCovidData: Codable {
+    
+    var updated: Int
+    let cases: Int
+    let todayCases: Int
+    let deaths: Int
+    let todayDeaths: Int
+    let recovered: Int
+    let tests: Int
+}

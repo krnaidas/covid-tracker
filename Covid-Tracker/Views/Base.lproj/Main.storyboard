@@ -29,6 +29,9 @@
                                                 </constraints>
                                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <state key="normal" backgroundImage="globe" catalog="system"/>
+                                                <connections>
+                                                    <action selector="globeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xxb-fy-7fJ"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bIJ-z6-2Wx" userLabel="Search Bar">
                                                 <rect key="frame" x="55" y="0.0" width="280" height="40"/>
@@ -92,7 +95,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a4t-H4-HgB">
                                                 <rect key="frame" x="0.0" y="0.0" width="122.66666666666667" height="59"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTk-h1-9Jj" userLabel="New Cases Num">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="oTk-h1-9Jj" userLabel="New Cases Num">
                                                         <rect key="frame" x="0.0" y="0.0" width="122.66666666666667" height="42"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                                         <nil key="textColor"/>
@@ -109,7 +112,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Aoo-G9-P8F">
                                                 <rect key="frame" x="212.66666666666666" y="0.0" width="122.33333333333334" height="59"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axT-YC-jdt" userLabel="Recoveries Num">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="axT-YC-jdt" userLabel="Recoveries Num">
                                                         <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="42"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                                         <nil key="textColor"/>
@@ -131,7 +134,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="70p-mZ-mqK">
                                                 <rect key="frame" x="0.0" y="0.0" width="122.66666666666667" height="67"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqG-RP-OBH" userLabel="New Deaths Num">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="OqG-RP-OBH" userLabel="New Deaths Num">
                                                         <rect key="frame" x="0.0" y="0.0" width="122.66666666666667" height="42"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                                         <nil key="textColor"/>
@@ -148,7 +151,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ktq-mB-je1">
                                                 <rect key="frame" x="212.66666666666666" y="0.0" width="122.33333333333334" height="67"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4H-ec-Pa5" userLabel="Total Tests Num">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="c4H-ec-Pa5" userLabel="Total Tests Num">
                                                         <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="42"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                                         <nil key="textColor"/>
@@ -194,6 +197,7 @@
                         <outlet property="countryLabel" destination="Vul-h9-mXc" id="JkB-ax-Rxc"/>
                         <outlet property="currentCasesLabel" destination="D0S-dz-iAq" id="hbs-dF-TYJ"/>
                         <outlet property="currentDeathsLabel" destination="w9i-CL-KLx" id="q6R-4r-WMn"/>
+                        <outlet property="globeButton" destination="haV-Qk-aXe" id="zJJ-aQ-2iW"/>
                         <outlet property="newCasesLabel" destination="oTk-h1-9Jj" id="vQe-NG-71B"/>
                         <outlet property="newDeathsLabel" destination="OqG-RP-OBH" id="iWD-8w-tSl"/>
                         <outlet property="newRecoveriesLabel" destination="axT-YC-jdt" id="Tf2-dP-ngE"/>
