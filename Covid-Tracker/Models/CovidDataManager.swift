@@ -25,10 +25,18 @@ struct CovidDataManager {
     
     var delegate:  CovidDataManagerDelegate?
     
-    let baseURL = "https://corona.lmao.ninja/v2/countries/"
+    let baseURL = "https://corona.lmao.ninja/v2/countries"
     
     func fetchCovidData(countryName: String) {
-        let urlString = "\(baseURL)\(countryName)"
+        
+        let countryNameWithSpace = countryName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        print(countryNameWithSpace!)
+        
+        let urlString = "\(baseURL)/\(countryNameWithSpace ?? "")"
+        
+        print(urlString)
+        
         getCountryData(urlString: urlString)
         
     }

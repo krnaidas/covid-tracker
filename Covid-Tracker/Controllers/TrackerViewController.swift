@@ -65,11 +65,7 @@ extension TrackerViewController: CountryPickerViewDelegate {
             covidDataManager.fetchCovidData(countryName: countryName)
         }
         
-        if country.name == "South Korea" {
-            countryName = "S.%20Korea"
-            getCovidDatafromCountry()
-            
-        } else if country.name == "United States" {
+        if country.name == "United States" {
             countryName = "USA"
             getCovidDatafromCountry()
             
