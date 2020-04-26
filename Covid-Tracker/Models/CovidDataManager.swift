@@ -21,7 +21,7 @@ struct CovidDataManager {
     
     //MARK: - Get all country names
     
-    func getAllCountryData(endpoint: String) {
+    func getCountryData(endpoint: String) {
         
         AF.request(self.baseURL + endpoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil).response { (responseData) in
             guard let data = responseData.data else {return}

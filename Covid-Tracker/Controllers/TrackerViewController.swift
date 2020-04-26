@@ -28,7 +28,7 @@ class TrackerViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         let service = CovidDataManager(baseURL: "https://corona.lmao.ninja/v2/countries/")
-        service.getAllCountryData(endpoint: "philippines")
+        service.getCountryData(endpoint: "philippines")
     }
 
     @IBAction func searchedPressed(_ sender: Any) {
