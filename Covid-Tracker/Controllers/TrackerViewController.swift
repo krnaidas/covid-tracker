@@ -36,6 +36,7 @@ class TrackerViewController: UIViewController {
         
         covidDataManager.delegate = self
         cpvInternal.delegate = self
+        
     }
     
     @IBAction func searchedPressed(_ sender: Any) {

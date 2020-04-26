@@ -10,8 +10,11 @@ import Foundation
 import Alamofire
 
 protocol CovidDataManagerDelegate {
+    
     func didUpdateCovidData(_ covidDataManager: CovidDataManager, covidStats: CovidDataModel)
     func didFailWithError(error: Error)
+    
+    
 }
 
 struct CovidDataManager {
@@ -24,6 +27,8 @@ struct CovidDataManager {
     //    fileprivate var baseURL = ""
     
     var delegate:  CovidDataManagerDelegate?
+    
+    
     
     let baseURL = "https://corona.lmao.ninja/v2/countries"
     
@@ -39,7 +44,10 @@ struct CovidDataManager {
         
         getCountryData(urlString: urlString)
         
+        
     }
+
+    
     
     //MARK: - Get all country names request
     
