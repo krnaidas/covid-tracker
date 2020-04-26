@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tracker View Controller-->
+        <!--Covid-19 Tracker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TrackerViewController" customModule="Covid_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,38 +21,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="16A-bF-iA2" userLabel="Search Stack">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lny-Vg-QDP">
-                                                <rect key="frame" x="0.0" y="1" width="40" height="38.666666666666671"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="1er-ub-Ptg"/>
-                                                    <constraint firstAttribute="height" constant="40" id="ZI5-IR-Qr3"/>
-                                                </constraints>
-                                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <state key="normal" backgroundImage="location.circle" catalog="system"/>
-                                                <connections>
-                                                    <action selector="getLocationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="22b-Xm-yV7"/>
-                                                </connections>
-                                            </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bIJ-z6-2Wx" userLabel="Search Bar">
-                                                <rect key="frame" x="55" y="0.0" width="225" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="searchFieldPressed:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="UgP-es-UBa"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1W-en-MYD">
-                                                <rect key="frame" x="295" y="1" width="40" height="38.666666666666671"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="5iJ-XX-ANb"/>
-                                                    <constraint firstAttribute="width" constant="40" id="bQa-fl-jmf"/>
-                                                </constraints>
-                                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <state key="normal" backgroundImage="magnifyingglass.circle.fill" catalog="system"/>
-                                                <connections>
-                                                    <action selector="searchedPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pwg-8p-84R"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vul-h9-mXc" userLabel="Country">
@@ -202,7 +178,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7Yk-5y-SWk"/>
+                    <navigationItem key="navigationItem" title="Covid-19 Tracker" id="7Yk-5y-SWk">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="xQX-Jf-pOo"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="countryLabel" destination="Vul-h9-mXc" id="JkB-ax-Rxc"/>
                         <outlet property="currentCasesLabel" destination="D0S-dz-iAq" id="hbs-dF-TYJ"/>
@@ -238,8 +216,4 @@
             <point key="canvasLocation" x="140" y="119.70443349753695"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="location.circle" catalog="system" width="128" height="121"/>
-        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
-    </resources>
 </document>
