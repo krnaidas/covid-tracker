@@ -26,10 +26,13 @@ class TrackerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let service = CovidDataManager(baseURL: "https://corona.lmao.ninja/v2/countries/")
+        service.getAllCountryData(endpoint: "philippines")
     }
 
     @IBAction func searchedPressed(_ sender: Any) {
-        print("searched pressed")
+        print(searchTextField.text!)
     }
     
     @IBAction func getLocationPressed(_ sender: Any) {
