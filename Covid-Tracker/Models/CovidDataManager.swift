@@ -13,21 +13,28 @@ struct CovidDataManager {
     
 //    corona.lmao.ninja/v2
     
-    fileprivate var baseURL = ""
+//    let service = CovidDataManager(baseURL: "https://corona.lmao.ninja/v2/countries/")
+//    service.getCountryData(endpoint: countryName)
+//
+//    fileprivate var baseURL = ""
     
-    init(baseURL: String) {
-        self.baseURL = baseURL
+    let baseURL = "https://corona.lmao.ninja/v2/countries/"
+
+    func fetchCovidData(countryName: String) {
+        let urlString = "\(baseURL)\(countryName)"
+        getCountryData(urlString: urlString)
+        
     }
     
-    //MARK: - Get all country names
+    //MARK: - Get all country names request
     
-    func getCountryData(endpoint: String) {
+    func getCountryData(urlString: String) {
         
-        AF.request(self.baseURL + endpoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil).response { (responseData) in
+        AF.request(urlString, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil, requestModifier: nil).response { (responseData) in
             guard let data = responseData.data else {return}
             do {
                 let decodedData = try JSONDecoder().decode(CovidData.self, from: data)
-                print(decodedData)
+                print(decodedData.cases)
                 
             } catch {
                 print("Error decoding countries \(error)")
