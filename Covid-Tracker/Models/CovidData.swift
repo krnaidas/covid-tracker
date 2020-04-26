@@ -11,6 +11,7 @@ import Foundation
 
 struct CovidData: Codable {
     
+    let updated: Int
     let country: String
     let cases: Int
     let todayCases: Int

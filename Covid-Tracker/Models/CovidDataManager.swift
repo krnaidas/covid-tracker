@@ -61,6 +61,7 @@ struct CovidDataManager {
         do {
             let decodedData = try decoder.decode(CovidData.self, from: covidData)
             
+            let updated = decodedData.updated
             let country = decodedData.country
             let cases = decodedData.cases
             let todayCases = decodedData.todayCases
@@ -69,7 +70,7 @@ struct CovidDataManager {
             let recovered = decodedData.recovered
             let tests = decodedData.tests
             
-            let covidStats = CovidDataModel(countryName: country, totalCases: cases, totalDeaths: deaths, casesToday: todayCases, deathsToday: todayDeaths, totalRecovered: recovered, totalTests: tests)
+            let covidStats = CovidDataModel(dateTimeUpdated: updated, countryName: country, totalCases: cases, totalDeaths: deaths, casesToday: todayCases, deathsToday: todayDeaths, totalRecovered: recovered, totalTests: tests)
             
             print(covidStats)
             
