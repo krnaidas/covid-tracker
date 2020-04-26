@@ -8,5 +8,6 @@ target 'Covid-Tracker' do
   # Pods for Covid-Tracker
 
 pod 'Alamofire', '~> 5.1'
+pod 'CountryPickerView'
 
 end
